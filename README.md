@@ -1,6 +1,6 @@
-# Docker Compose for MongoDB
+# Docker Compose of MongoDB
 
-A very simple docker-compose for MongoDB.
+A very simple docker-compose of MongoDB.
 
 This repo is only used on my Raspberry Pi 3 with Ubuntu 18.04 (ARM64).
 
