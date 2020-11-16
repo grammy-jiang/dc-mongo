@@ -30,3 +30,4 @@ logs:
 
 pure_up: remove_volumes create_volumes up
 pure_down: down remove_volumes
+pure_restart: pure_down pure_up
