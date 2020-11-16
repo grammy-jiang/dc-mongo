@@ -40,7 +40,14 @@ Build Info: {
 ```
 
 ```console
-foo@bar:~$ docker run -it --network dc-mongo_nw-mongo --rm mongo:latest mongo mongodb://root:password@dc-mongo/admin --eval "printjson(db.adminCommand('listDatabases'))"
+foo@bar:~$ docker run \
+           -it \
+           --network dc-mongo_nw-mongo \
+           --rm \
+           mongo:latest \
+           mongo \
+           mongodb://root:password@dc-mongo/admin \
+           --eval "printjson(db.adminCommand('listDatabases'))"
 MongoDB shell version v4.4.1
 connecting to: mongodb://dc-mongo:27017/admin?compressors=disabled&gssapiServiceName=mongodb
 Implicit session: session { "id" : UUID("cf1c4a4a-00cc-4624-9656-832599c1188d") }
