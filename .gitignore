@@ -477,3 +477,5 @@ mongo-db/
 mongo-home/
 mongo.env
 
+makefile.env
+
