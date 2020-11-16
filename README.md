@@ -75,6 +75,40 @@ MongoDB server version: 4.4.1
 }
 ```
 
+```console
+foo@bar:~$ docker run \
+           -it \
+           --network dc-mongo_nw-mongo \
+           --rm \
+           mongo:latest \
+           mongo \
+           mongodb://root:password@dc-mongo/admin \
+           --eval "printjson(db.getUsers())"
+MongoDB shell version v4.4.1
+connecting to: mongodb://dc-mongo:27017/admin?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("1cbe9da7-5625-4617-b4e2-82ccf587234c") }
+MongoDB server version: 4.4.1
+[
+        {
+                "_id" : "admin.root",
+                "userId" : UUID("d3852635-0f5f-47bf-89cb-13af281ca110"),
+                "user" : "root",
+                "db" : "admin",
+                "roles" : [
+                        {
+                                "role" : "root",
+                                "db" : "admin"
+                        }
+                ],
+                "mechanisms" : [
+                        "SCRAM-SHA-1",
+                        "SCRAM-SHA-256"
+                ]
+        }
+]
+
+```
+
 # Reference
 
 * [mongo - Docker Hub](https://hub.docker.com/_/mongo)
