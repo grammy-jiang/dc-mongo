@@ -17,7 +17,10 @@ remove_volumes:
 	 fi
 create_volumes:
 	@if [ ! -d ${mh} ]; then \
-		mkdir ${mh} && sudo chown `docker run --rm mongo:latest id -u mongodb`:`docker run --rm mongo:latest id -g mongodb` ${mh}; \
+		mkdir ${mh} && \
+		MONGO_USER=`docker run --rm mongo:latest id -u mongodb` && \
+		MONGO_GROUP=`docker run --rm mongo:latest id -g mongodb` && \
+		sudo chown ${MONGO_USER}:${MONGO_GROUP} ${mh}; \
 	 fi
 up:
 	@docker-compose --file ${dc} up --detach
