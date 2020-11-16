@@ -475,3 +475,5 @@ hs_err_pid*
 
 mongo-db/
 mongo-home/
+mongo.env
+
