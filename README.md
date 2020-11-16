@@ -17,7 +17,9 @@ it to the right user and group:
 
 ```console
 foo@bar:~$ mkdir mongo-home && \
-sudo chown `docker run --rm mongo:latest id -u mongodb`:`docker run --rm mongo:latest id -g mongodb` mongo-home
+           MONGO_USER=`docker run --rm mongo:latest id -u mongodb` && \
+           MONGO_GROUP=`docker run --rm mongo:latest id -g mongodb` && \
+           sudo chown ${MONGO_USER}:${MONGO_GROUP} mongo-home
 ```
 
 ```console
