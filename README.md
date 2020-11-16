@@ -39,6 +39,35 @@ Build Info: {
 }
 ```
 
+```console
+foo@bar:~$ docker run -it --network dc-mongo_nw-mongo --rm mongo:latest mongo mongodb://root:password@dc-mongo/admin --eval "printjson(db.adminCommand('listDatabases'))"
+MongoDB shell version v4.4.1
+connecting to: mongodb://dc-mongo:27017/admin?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("cf1c4a4a-00cc-4624-9656-832599c1188d") }
+MongoDB server version: 4.4.1
+{
+        "databases" : [
+                {
+                        "name" : "admin",
+                        "sizeOnDisk" : 102400,
+                        "empty" : false
+                },
+                {
+                        "name" : "config",
+                        "sizeOnDisk" : 12288,
+                        "empty" : false
+                },
+                {
+                        "name" : "local",
+                        "sizeOnDisk" : 73728,
+                        "empty" : false
+                }
+        ],
+        "totalSize" : 188416,
+        "ok" : 1
+}
+```
+
 # Reference
 
 * [mongo - Docker Hub](https://hub.docker.com/_/mongo)
